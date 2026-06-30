@@ -20,6 +20,12 @@ python app.py
 
 Open the local server URL shown in the terminal, usually `http://127.0.0.1:5000`.
 
+## GitHub Pages
+
+The repository-root `index.html` is a static project homepage for GitHub Pages.
+The crop prediction feature requires the Python/Flask backend and therefore must
+be run locally or deployed to a Python-compatible hosting service.
+
 ## No-Dependency Demo
 
 If your Python environment cannot install scientific packages, run the standard-library demo:
@@ -47,6 +53,7 @@ The columns should be:
 ## Project Structure
 
 ```text
+index.html
 app.py
 train_model.py
 requirements.txt
