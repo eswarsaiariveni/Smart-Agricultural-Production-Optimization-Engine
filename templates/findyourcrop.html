@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Find Your Crop</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">
+            <span class="brand-mark">OC</span>
+            <span>OptiCrop</span>
+        </a>
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/findyourcrop">Find Your Crop</a>
+            <a href="/research">Research</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tool-layout">
+            <form class="predict-form" action="/predict" method="post">
+                <div class="form-heading">
+                    <p class="eyebrow">Prediction Form</p>
+                    <h1>Find Your Crop</h1>
+                </div>
+
+                {% if error %}
+                    <div class="alert">{{ error }}</div>
+                {% endif %}
+
+                <div class="input-grid">
+                    <label>Nitrogen
+                        <input type="number" name="N" value="{{ defaults.N }}" min="0" max="200" step="0.01" required>
+                    </label>
+                    <label>Phosphorus
+                        <input type="number" name="P" value="{{ defaults.P }}" min="0" max="220" step="0.01" required>
+                    </label>
+                    <label>Potassium
+                        <input type="number" name="K" value="{{ defaults.K }}" min="0" max="260" step="0.01" required>
+                    </label>
+                    <label>Temperature
+                        <input type="number" name="temperature" value="{{ defaults.temperature }}" min="0" max="60" step="0.01" required>
+                    </label>
+                    <label>Humidity
+                        <input type="number" name="humidity" value="{{ defaults.humidity }}" min="0" max="100" step="0.01" required>
+                    </label>
+                    <label>pH
+                        <input type="number" name="ph" value="{{ defaults.ph }}" min="0" max="14" step="0.01" required>
+                    </label>
+                    <label>Rainfall
+                        <input type="number" name="rainfall" value="{{ defaults.rainfall }}" min="0" max="400" step="0.01" required>
+                    </label>
+                </div>
+
+                <button class="button primary wide" type="submit">Predict Crop</button>
+            </form>
+
+            <aside class="result-panel">
+                {% if result %}
+                    <p class="eyebrow">Recommendation</p>
+                    <h2>{{ result.crop }}</h2>
+                    <div class="confidence">
+                        <span>Confidence</span>
+                        <strong>{{ result.confidence }}%</strong>
+                    </div>
+                    <p>{{ result.summary }}</p>
+                    <dl>
+                        <div>
+                            <dt>Season Fit</dt>
+                            <dd>{{ result.season }}</dd>
+                        </div>
+                        <div>
+                            <dt>Productivity Potential</dt>
+                            <dd>{{ result.productivity }}</dd>
+                        </div>
+                        <div>
+                            <dt>Generated</dt>
+                            <dd>{{ result.generated_at }}</dd>
+                        </div>
+                    </dl>
+                    <div class="recommendations">
+                        <h3>Recommendations</h3>
+                        <p>{{ result.water_note }}</p>
+                        <p>{{ result.ph_note }}</p>
+                    </div>
+                {% else %}
+                    <p class="eyebrow">Assessment Output</p>
+                    <h2>Awaiting field data</h2>
+                    <p>
+                        Submit soil and climate values to generate a crop recommendation,
+                        compatibility assessment, and resource planning notes.
+                    </p>
+                {% endif %}
+            </aside>
+        </section>
+    </main>
+</body>
+</html>

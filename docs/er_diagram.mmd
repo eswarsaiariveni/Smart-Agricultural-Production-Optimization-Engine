@@ -1,0 +1,71 @@
+erDiagram
+    USERS ||--o{ SOIL_DATA : submits
+    SOIL_DATA ||--|| PREDICTIONS : generates
+    CROPS ||--o{ PREDICTIONS : recommended_in
+    DATASETS ||--o{ ML_MODELS : trains
+    ML_MODELS ||--o{ PREDICTIONS : generates
+    PREDICTIONS ||--o{ REPORTS : contains
+
+    USERS {
+        int user_id PK
+        string name
+        string email
+        string password_hash
+        string role
+    }
+
+    SOIL_DATA {
+        int soil_id PK
+        int user_id FK
+        float nitrogen
+        float phosphorus
+        float potassium
+        float temperature
+        float humidity
+        float ph
+        float rainfall
+        string season
+    }
+
+    CROPS {
+        int crop_id PK
+        string crop_name
+        string crop_type
+        string season
+        float optimal_ph
+        string water_requirement
+    }
+
+    DATASETS {
+        int dataset_id PK
+        string dataset_name
+        string source
+        int total_records
+        date last_updated
+    }
+
+    ML_MODELS {
+        int model_id PK
+        int dataset_id FK
+        string model_name
+        string algorithm
+        float accuracy
+        string model_path
+    }
+
+    PREDICTIONS {
+        int prediction_id PK
+        int soil_id FK
+        int crop_id FK
+        int model_id FK
+        date prediction_date
+        float confidence_score
+    }
+
+    REPORTS {
+        int report_id PK
+        int prediction_id FK
+        date generated_date
+        string summary
+        string recommendations
+    }

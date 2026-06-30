@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research and Policy Planning</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">
+            <span class="brand-mark">OC</span>
+            <span>OptiCrop</span>
+        </a>
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/findyourcrop">Find Your Crop</a>
+            <a href="/research">Research</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header compact">
+            <p class="eyebrow">Research Workflow</p>
+            <h1>Crop-environment analysis for agricultural planning.</h1>
+        </section>
+
+        <section class="timeline">
+            <article>
+                <h2>1. Data Collection and Analysis</h2>
+                <p>
+                    The project uses crop recommendation records containing N, P, K, temperature,
+                    humidity, pH, rainfall, and crop labels. Exploratory analysis supports
+                    univariate, bivariate, and multivariate understanding.
+                </p>
+            </article>
+            <article>
+                <h2>2. Data Preprocessing</h2>
+                <p>
+                    Missing values are checked, outliers can be inspected with IQR and boxplots,
+                    and the dataset is split into training and testing sets for reliable evaluation.
+                </p>
+            </article>
+            <article>
+                <h2>3. Model Building</h2>
+                <p>
+                    The training script compares Logistic Regression and Random Forest models.
+                    The best-performing classifier is saved as models/model.pkl.
+                </p>
+            </article>
+            <article>
+                <h2>4. Reports and Policy Use</h2>
+                <p>
+                    Predictions can support crop planning, sustainable water and fertilizer use,
+                    agricultural research, and evidence-based policy decisions.
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

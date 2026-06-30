@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OptiCrop | Smart Crop Recommendation</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">
+            <span class="brand-mark">OC</span>
+            <span>OptiCrop</span>
+        </a>
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/findyourcrop">Find Your Crop</a>
+            <a href="/research">Research</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Smart Agricultural Production Optimization Engine</p>
+                <h1>Crop decisions powered by soil, climate, and machine learning.</h1>
+                <p>
+                    Enter field conditions and receive a crop recommendation with suitability notes,
+                    productivity potential, and resource planning guidance.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="/findyourcrop">Start Prediction</a>
+                    <a class="button secondary" href="/research">View Research Flow</a>
+                </div>
+            </div>
+            <div class="field-visual" aria-hidden="true">
+                <div class="sun"></div>
+                <div class="field-row row-one"></div>
+                <div class="field-row row-two"></div>
+                <div class="field-row row-three"></div>
+                <div class="sensor-card">
+                    <strong>NPK</strong>
+                    <span>soil profile</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics">
+            <article>
+                <strong>7</strong>
+                <span>Input features</span>
+            </article>
+            <article>
+                <strong>22</strong>
+                <span>Supported crops</span>
+            </article>
+            <article>
+                <strong>3</strong>
+                <span>Project scenarios</span>
+            </article>
+        </section>
+
+        <section class="workflow">
+            <h2>Application Workflow</h2>
+            <div class="workflow-grid">
+                <article>
+                    <span class="step">01</span>
+                    <h3>Collect Soil Data</h3>
+                    <p>N, P, K, temperature, humidity, pH, and rainfall are captured from the user.</p>
+                </article>
+                <article>
+                    <span class="step">02</span>
+                    <h3>Predict Crop</h3>
+                    <p>The trained model compares the conditions against crop-environment patterns.</p>
+                </article>
+                <article>
+                    <span class="step">03</span>
+                    <h3>Generate Report</h3>
+                    <p>The application returns crop suitability, confidence, and farming recommendations.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
