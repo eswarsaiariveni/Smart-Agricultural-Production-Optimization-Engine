@@ -20,6 +20,26 @@ python app.py
 
 Open the local server URL shown in the terminal, usually `http://127.0.0.1:5000`.
 
+## Deploy on Render
+
+This repository includes `render.yaml` and `.python-version`, so Render uses a
+Python version compatible with the pinned scientific packages.
+
+1. Push the repository to GitHub.
+2. In Render, choose **New > Blueprint** and connect the repository.
+3. Render will install the dependencies, train the model, and start the app with
+   Gunicorn.
+
+For an existing Render Web Service, use:
+
+```text
+Build Command: pip install -r requirements.txt && python train_model.py
+Start Command: gunicorn app:app
+Health Check Path: /health
+```
+
+After pushing these files, use **Manual Deploy > Clear build cache & deploy**.
+
 ## GitHub Pages
 
 The repository-root `index.html` is a static project homepage for GitHub Pages.

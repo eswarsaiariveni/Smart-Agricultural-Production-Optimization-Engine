@@ -5,7 +5,7 @@ from pathlib import Path
 
 import joblib
 import numpy as np
-from flask import Flask, render_template, request
+from flask import Flask, jsonify, render_template, request
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -67,6 +67,11 @@ def crop_insights(crop: str, values: dict[str, float], confidence: float) -> dic
 @app.route("/")
 def home():
     return render_template("home.html")
+
+
+@app.route("/health")
+def health():
+    return jsonify(status="ok", model_ready=MODEL_PATH.exists())
 
 
 @app.route("/about")
